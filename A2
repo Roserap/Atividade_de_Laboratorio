@@ -1,1 +1,36 @@
+// Tarefa A2:
+// Dadas List<String> l1 = ["Java","Python","C++"] e l2 = ["C#","Java","Go"]:
+// • Use Collections.addAll(l1, "Kotlin","Swift").
+// • Calcule Collections.frequency(l1,"Java").
+// • Verifique Collections.disjoint(l1,l2).
+// • Exiba min/max (pode ser em uma lista numérica).
 
+import java.util.*;
+
+public class MainLabA2 {
+
+    public static void main(String[] args) {
+        System.out.println("=== Tarefa A2 ===");
+
+        List<String> l1 = new ArrayList<>(Arrays.asList("Java", "Python", "C++"));
+        List<String> l2 = new ArrayList<>(Arrays.asList("C#", "Java", "Go"));
+
+        System.out.println("l1 original: " + l1);
+        System.out.println("l2 original: " + l2);
+
+        Collections.addAll(l1, "Kotlin", "Swift");
+        System.out.println("Apos addAll: " + l1);
+
+        int freq = Collections.frequency(l1, "Java");
+        System.out.println("Frequencia de 'Java': " + freq);
+
+        boolean disjunto = Collections.disjoint(l1, l2);
+        System.out.println("l1 e l2 sao disjuntas? " + disjunto);
+
+        List<Integer> numeros = new ArrayList<>(Arrays.asList(10, 25, 3, 67, 15));
+        System.out.println("\nLista numerica: " + numeros);
+        System.out.println("Min: " + Collections.min(numeros));
+        System.out.println("Max: " + Collections.max(numeros));
+    }
+
+}
