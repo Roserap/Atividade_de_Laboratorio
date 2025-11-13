@@ -1,1 +1,68 @@
+//Tema: Coleções, Pilhas, Filas, PriorityQueue, Sets/Maps e
+//operações básicas de Listas/Árvores
+//Objetivos de aprendizagem
+//• Aplicar métodos utilitários do Collections (sort, binarySearch, reverse, shuffle, addAll, frequency,
+//disjoint, min/max).
+//• Implementar e usar Stack (LIFO) e Queue/PriorityQueue (FIFO/prioridade) em cenários
+//práticos.
+//• Usar Set/SortedSet/TreeSet e Map/SortedMap/TreeMap para evitar duplicatas, ordenar e
+//contabilizar frequência.
+//• Reforçar conceitos de Lista Encadeada e Árvore de Busca (inserção e percursos) de forma breve
+//(atividade bônus).
+
+//Preparação
+//1. Criar um projeto Java (VS Code/IntelliJ) com Java 8+.
+//2. Criar uma classe MainLab.java (um main e métodos estáticos por atividade).
+//3. Abrir os PDFs de referência nos trechos de Collections, Stack, Queue, PriorityQueue, Set e Map e
+//nos conceitos de Lista/Árvore.
+
+//Roteiro
+//Bloco A — Collections & List
+//Tarefa A1 :
+//Crie uma List<Integer> com: 5, 2, 8, 1, 9.
+//• Use Collections.sort e imprima.
+//• Faça Collections.binarySearch para o valor 8.
+//• Aplique Collections.reverse e Collections.shuffle e imprima após cada operação.
+
+import java.util.*;
+
+public class MainLabA1 {
+
+    public static void main(String[] args) {
+        System.out.println("=== LABORATÓRIO DE COLEÇÕES & ESTRUTURAS DE DADOS ===");
+
+        System.out.println("--- BLOCO A: Collections & List ---");
+        tarefaA1();
+
+        System.out.println("=== FIM DO LABORATÓRIO ===");
+    }
+
+    // ========== BLOCO A - Collections & List ==========
+
+    /**
+     * Tarefa A1: Operações básicas com Collections
+     * - sort, binarySearch, reverse, shuffle
+     */
+    public static void tarefaA1() {
+        System.out.println("[Tarefa A1] Operações com Collections");
+
+        List<Integer> numeros = new ArrayList<>(Arrays.asList(5, 2, 8, 1, 9));
+        System.out.println("Lista original: " + numeros);
+
+        Collections.sort(numeros);
+        System.out.println("Após sort(): " + numeros);
+
+        int valorBusca = 8;
+        int indice = Collections.binarySearch(numeros, valorBusca);
+        System.out.println("binarySearch(" + valorBusca + "): índice = " + indice);
+
+        Collections.reverse(numeros);
+        System.out.println("Após reverse(): " + numeros);
+
+        Collections.shuffle(numeros);
+        System.out.println("Após shuffle(): " + numeros);
+
+    }
+
+}
 
