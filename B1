@@ -1,1 +1,57 @@
+//Bloco B — Stack (LIFO)
+//Tarefa B1:
+//Implemente um verificador de parênteses balanceados usando Stack<Character>:
+//Entrada: "((2+3)*(4-1))", ")(2+3)(", "(1+(2*3)".
+//Saída: Balanceada ou Desbalanceada.
+//Relembre operações push/pop/peek/isEmpty; você pode usar java.util.Stack.
 
+// Bloco B - Stack (LIFO)
+// Tarefa B1:
+// Implemente um verificador de parenteses balanceados usando Stack<Character>:
+// Entrada: "((2+3)*(4-1))", ")(2+3)(", "(1+(2*3)".
+// Saida: Balanceada ou Desbalanceada.
+
+import java.util.*;
+
+public class MainLabB1 {
+
+    public static void main(String[] args) {
+        System.out.println("=== Tarefa B1 - Verificador de Parenteses ===");
+
+        String[] expressoes = {
+                "((2+3)*(4-1))",
+                ")(2+3)(",
+                "(1+(2*3))"
+        };
+
+        for (String exp : expressoes) {
+            boolean resultado = verificarParenteses(exp);
+            String status = resultado ? "Balanceada" : "Desbalanceada";
+            System.out.println(exp + " -> " + status);
+        }
+    }
+
+    public static boolean verificarParenteses(String expressao) {
+        Stack<Character> pilha = new Stack<>();
+
+        for (int i = 0; i < expressao.length(); i++) {
+            char c = expressao.charAt(i);
+
+            if (c == '(') {
+                pilha.push(c);
+            }
+
+            else if (c == ')') {
+
+                if (pilha.isEmpty()) {
+                    return false;
+                }
+
+                pilha.pop();
+            }
+        }
+
+        return pilha.isEmpty();
+    }
+
+}
