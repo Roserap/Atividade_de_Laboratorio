@@ -1,1 +1,41 @@
+// Bloco C — Queue & PriorityQueue
+// Tarefa C1:
+// Simule fila de impressão com Queue<String>:
+// • Enfileire: Doc1, Doc2, Doc3; remova dois; enfileire Doc4; imprima o estado
+// após cada operação.
+// Use offer/poll/peek/clear/size.
 
+import java.util.*;
+
+public class MainLabC1 {
+
+    public static void main(String[] args) {
+        System.out.println("=== Tarefa C1 - Fila de Impressao ===");
+
+        Queue<String> fila = new LinkedList<>();
+
+        fila.offer("Doc1");
+        System.out.println("Apos offer(Doc1): " + fila + " | Tamanho: " + fila.size());
+
+        fila.offer("Doc2");
+        System.out.println("Apos offer(Doc2): " + fila + " | Tamanho: " + fila.size());
+
+        fila.offer("Doc3");
+        System.out.println("Apos offer(Doc3): " + fila + " | Tamanho: " + fila.size());
+
+        String removido1 = fila.poll();
+        System.out.println("\nRemovido: " + removido1);
+        System.out.println("Apos poll(): " + fila + " | Tamanho: " + fila.size());
+
+        String removido2 = fila.poll();
+        System.out.println("\nRemovido: " + removido2);
+        System.out.println("Apos poll(): " + fila + " | Tamanho: " + fila.size());
+
+        fila.offer("Doc4");
+        System.out.println("\nApos offer(Doc4): " + fila + " | Tamanho: " + fila.size());
+
+        System.out.println("\nProximo da fila (peek): " + fila.peek());
+        System.out.println("Fila apos peek: " + fila);
+    }
+
+}
