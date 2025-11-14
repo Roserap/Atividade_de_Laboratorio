@@ -1,1 +1,114 @@
+// E2 : Árvore de Busca
+// Crie uma BST e insira: 8,3,10,1,6,14,4,7,13.
+// • Exiba percursos in-order, pre-order e post-order (uma linha por percurso).
+// Repasse regras de BST e percursos (in/pre/post).
+// Entregáveis (ao final da aula)
+// • Um .zip com o projeto (ou um único arquivo MainLab.java), contendo:
+// o Prints do console ou comentários com a saída esperada em cada bloco.
+// o Classes para Lista Encadeada e BST
 
+// E2: Arvore de Busca
+// Crie uma BST e insira: 8,3,10,1,6,14,4,7,13.
+// • Exiba percursos in-order, pre-order e post-order (uma linha por percurso).
+// Repasse regras de BST e percursos (in/pre/post).
+
+public class MainLabE2 {
+
+    static class No {
+        int data;
+        No esquerda;
+        No direita;
+
+        No(int data) {
+            this.data = data;
+            this.esquerda = null;
+            this.direita = null;
+        }
+    }
+
+    static class BST {
+        No raiz;
+
+        void inserir(int data) {
+            raiz = inserirRecursivo(raiz, data);
+        }
+
+        No inserirRecursivo(No atual, int data) {
+            if (atual == null) {
+                return new No(data);
+            }
+
+            if (data < atual.data) {
+                atual.esquerda = inserirRecursivo(atual.esquerda, data);
+            } else if (data > atual.data) {
+                atual.direita = inserirRecursivo(atual.direita, data);
+            }
+
+            return atual;
+        }
+
+        void inOrder() {
+            System.out.print("In-Order: ");
+            inOrderRecursivo(raiz);
+            System.out.println();
+        }
+
+        void inOrderRecursivo(No no) {
+            if (no != null) {
+                inOrderRecursivo(no.esquerda);
+                System.out.print(no.data + " ");
+                inOrderRecursivo(no.direita);
+            }
+        }
+
+        void preOrder() {
+            System.out.print("Pre-Order: ");
+            preOrderRecursivo(raiz);
+            System.out.println();
+        }
+
+        void preOrderRecursivo(No no) {
+            if (no != null) {
+                System.out.print(no.data + " ");
+                preOrderRecursivo(no.esquerda);
+                preOrderRecursivo(no.direita);
+            }
+        }
+
+        void postOrder() {
+            System.out.print("Post-Order: ");
+            postOrderRecursivo(raiz);
+            System.out.println();
+        }
+
+        void postOrderRecursivo(No no) {
+            if (no != null) {
+                postOrderRecursivo(no.esquerda);
+                postOrderRecursivo(no.direita);
+                System.out.print(no.data + " ");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("=== Tarefa E2 - Arvore de Busca Binaria (BST) ===");
+
+        BST arvore = new BST();
+
+        int[] valores = {8, 3, 10, 1, 6, 14, 4, 7, 13};
+        
+        System.out.println("\nInserindo valores na BST:");
+        for (int valor : valores) {
+            arvore.inserir(valor);
+            System.out.print(valor + " ");
+        }
+        System.out.println("\n");
+
+        System.out.println("--- Percursos ---");
+        arvore.inOrder();
+        arvore.preOrder();
+        arvore.postOrder();
+
+    }
+
+}
