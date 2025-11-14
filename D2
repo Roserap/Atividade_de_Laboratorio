@@ -1,1 +1,42 @@
+// Diferencie HashSet (tabela de hash) e TreeSet (ordenado).
+// Tarefa D2:
+// Crie um Map<String,Integer> com notas de alunos ("Ana":90, "Carlos":80,
+// "Bianca":85).
+// • Exiba a nota da "Ana", o keySet() e o size().
+// • Crie um TreeMap a partir do HashMap e exiba ordenado por chave.
+// Consulte Map/HashMap/TreeMap (pares chave–valor e ordenação).
+
+import java.util.*;
+
+public class MainLabD2 {
+
+    public static void main(String[] args) {
+        System.out.println("=== Tarefa D2 - Map & TreeMap ===");
+
+        System.out.println("\n--- HashMap ---");
+        HashMap<String, Integer> notas = new HashMap<>();
+
+        notas.put("Ana", 90);
+        notas.put("Carlos", 80);
+        notas.put("Bianca", 85);
+
+        System.out.println("HashMap: " + notas);
+
+        System.out.println("Nota da Ana: " + notas.get("Ana"));
+
+        System.out.println("keySet(): " + notas.keySet());
+
+        System.out.println("size(): " + notas.size());
+
+        System.out.println("\n--- TreeMap ---");
+        TreeMap<String, Integer> notasOrdenadas = new TreeMap<>(notas);
+
+        System.out.println("TreeMap (ordenado por chave): " + notasOrdenadas);
+
+        System.out.println("\n--- Diferencas ---");
+        System.out.println("HashSet: usa tabela de hash, SEM ordem");
+        System.out.println("TreeSet: usa arvore, ordem NATURAL (crescente)");
+    }
+
+}
 
