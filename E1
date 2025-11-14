@@ -1,1 +1,124 @@
+//Bloco E — Lista Encadeada & Árvore de Busca
+//E1: Lista Encadeada
+//Implemente uma lista encadeada simples com insertAtFront, insertAtBack, removeFromFront,
+//removeFromBack, print.
+//• Insira 1,2,3,4,5 (alguns no início e outros no fim) e mostre após remoções.
+//Use a estrutura Nó (data e next), como na apostila.
 
+// Bloco E - Lista Encadeada & Arvore de Busca
+// E1: Lista Encadeada
+// Implemente uma lista encadeada simples com insertAtFront, insertAtBack, removeFromFront,
+// removeFromBack, print.
+// • Insira 1,2,3,4,5 (alguns no inicio e outros no fim) e mostre apos remocoes.
+// Use a estrutura No (data e next), como na apostila.
+
+public class MainLabE1 {
+
+    static class No {
+        int data;
+        No next;
+
+        No(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    static class ListaEncadeada {
+        No head;
+
+        void insertAtFront(int data) {
+            No novoNo = new No(data);
+            novoNo.next = head;
+            head = novoNo;
+        }
+
+        void insertAtBack(int data) {
+            No novoNo = new No(data);
+
+            if (head == null) {
+                head = novoNo;
+                return;
+            }
+
+            No atual = head;
+            while (atual.next != null) {
+                atual = atual.next;
+            }
+            atual.next = novoNo;
+        }
+
+        void removeFromFront() {
+            if (head == null) {
+                System.out.println("Lista vazia!");
+                return;
+            }
+            System.out.println("Removido do inicio: " + head.data);
+            head = head.next;
+        }
+
+        void removeFromBack() {
+            if (head == null) {
+                System.out.println("Lista vazia!");
+                return;
+            }
+
+            if (head.next == null) {
+                System.out.println("Removido do fim: " + head.data);
+                head = null;
+                return;
+            }
+
+            No atual = head;
+            while (atual.next.next != null) {
+                atual = atual.next;
+            }
+            System.out.println("Removido do fim: " + atual.next.data);
+            atual.next = null;
+        }
+
+        void print() {
+            if (head == null) {
+                System.out.println("Lista vazia!");
+                return;
+            }
+
+            No atual = head;
+            System.out.print("Lista: ");
+            while (atual != null) {
+                System.out.print(atual.data + " -> ");
+                atual = atual.next;
+            }
+            System.out.println("null");
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("=== Tarefa E1 - Lista Encadeada ===");
+
+        ListaEncadeada lista = new ListaEncadeada();
+
+        lista.insertAtFront(1);
+        lista.print();
+
+        lista.insertAtFront(2);
+        lista.print();
+
+        lista.insertAtBack(3);
+        lista.print();
+
+        lista.insertAtBack(4);
+        lista.print();
+
+        lista.insertAtBack(5);
+        lista.print();
+
+        System.out.println("\n--- Remocoes ---");
+        lista.removeFromFront();
+        lista.print();
+
+        lista.removeFromBack();
+        lista.print();
+    }
+
+}
