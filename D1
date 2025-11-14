@@ -1,1 +1,49 @@
+// Bloco D — Set & Map
+// Tarefa D1:
+// Crie um HashSet<String> e insira valores com duplicatas
+// ("Java","Python","C++","Java").
+// • Mostre o conjunto (sem duplicatas).
+// • Crie um TreeSet<Integer> com 10,5,8,1 e imprima ordenado; mostre headSet(8)
+// e
+// tailSet(8).
 
+// Bloco D - Set & Map
+// Tarefa D1:
+// Crie um HashSet<String> e insira valores com duplicatas ("Java","Python","C++","Java").
+// • Mostre o conjunto (sem duplicatas).
+// • Crie um TreeSet<Integer> com 10,5,8,1 e imprima ordenado; mostre headSet(8) e
+// tailSet(8).
+
+import java.util.*;
+
+public class MainLabD1 {
+
+    public static void main(String[] args) {
+        System.out.println("=== Tarefa D1 - Set & TreeSet ===");
+
+        System.out.println("\n--- HashSet ---");
+        HashSet<String> linguagens = new HashSet<>();
+
+        linguagens.add("Java");
+        linguagens.add("Python");
+        linguagens.add("C++");
+        linguagens.add("Java");
+
+        System.out.println("HashSet (sem duplicatas): " + linguagens);
+
+        System.out.println("\n--- TreeSet ---");
+        TreeSet<Integer> numeros = new TreeSet<>();
+
+        numeros.add(10);
+        numeros.add(5);
+        numeros.add(8);
+        numeros.add(1);
+
+        System.out.println("TreeSet (ordenado): " + numeros);
+
+        System.out.println("headSet(8): " + numeros.headSet(8));
+
+        System.out.println("tailSet(8): " + numeros.tailSet(8));
+    }
+
+}
