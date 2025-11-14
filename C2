@@ -1,1 +1,38 @@
+// Tarefa C2:
+// Use PriorityQueue<Integer> para priorizar os menores números primeiro:
+// • Oferta: 30, 10, 20, 40.
+// • Mostre peek (maior prioridade = menor valor) e remova todos em ordem.
+// Reforço: PriorityQueue usa ordem natural por padrão; pode receber Comparator.
 
+import java.util.*;
+
+public class MainLabC2 {
+
+    public static void main(String[] args) {
+        System.out.println("=== Tarefa C2 - PriorityQueue ===");
+
+        PriorityQueue<Integer> fila = new PriorityQueue<>();
+
+        fila.offer(30);
+        System.out.println("Apos offer(30): " + fila);
+
+        fila.offer(10);
+        System.out.println("Apos offer(10): " + fila);
+
+        fila.offer(20);
+        System.out.println("Apos offer(20): " + fila);
+
+        fila.offer(40);
+        System.out.println("Apos offer(40): " + fila);
+
+        System.out.println("Peek (maior prioridade): " + fila.peek());
+
+        System.out.println("Removendo todos em ordem de prioridade:");
+        while (!fila.isEmpty()) {
+            System.out.println("Poll: " + fila.poll());
+        }
+
+        System.out.println("Fila apos remover todos: " + fila);
+    }
+
+}
